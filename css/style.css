@@ -1,0 +1,120 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	background-image: linear-gradient(
+		to bottom,
+		#118c7e 0%,
+		#118c7e 15%,
+		#ece5dd 15%,
+		#ece5dd 100% /* whatsapp brand resources per i colori */
+	);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Lato", sans-serif;
+	min-width: 900px;
+}
+
+/* CONTAINER */
+.container {
+	display: flex;
+	width: 80%;
+	height: 95%;
+	min-width: 900px;
+	background: #fff;
+}
+
+/* HEADER */
+
+header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	background: #ededed;
+	padding: 10px 10px;
+}
+
+header a i {
+	margin-right: 15px;
+	font-size: 18px;
+	color: #bababa;
+	transition: color 0.1s;
+}
+
+header a i:hover {
+	color: #666666;
+}
+
+/* AVATAR IMAGES */
+img.avatar {
+	max-width: 50px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+/* ASIDE */
+.side {
+	flex-basis: 35%;
+}
+
+header .user-name {
+	flex-grow: 1;
+}
+
+aside .notifications {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 10px 20px;
+	background: #a2defe;
+}
+
+aside .notifications a i {
+	color: #a2defe;
+	background: #fff;
+	border-radius: 50%;
+	line-height: 50px;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	font-size: 20px;
+	margin-right: 10px;
+}
+
+aside .notifications .notifications-content a {
+	color: #666666;
+	text-decoration: underline;
+}
+/* CONTENT */
+
+.content {
+	flex-basis: 65%;
+	display: flex;
+	flex-direction: column;
+}
+
+/* CONTENT HEADER */
+
+main .main-header .header-content {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+main .main-header {
+	border-left: 1px solid #bababa;
+}
+.content-main {
+	flex-grow: 1;
+	overflow-y: auto;
+}
+
+.message {
+	padding: 20px;
+}

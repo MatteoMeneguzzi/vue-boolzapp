@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- VUE JS -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js' integrity='sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw==' crossorigin='anonymous'></script>
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==' crossorigin='anonymous'/>
+<body>
+    <!-- Sfondo da fare con
+         background linear gradient al body -->
+    <div id="app" class="container">
+        <aside class="side">
+            <header class="side-header">
+                <img src="./img/avatar_2.jpg" alt="user-image" class="avatar user-image">
+                <div class="user-name">Matteo Meneguzzi</div>
+                <a href="#"><i class="fas fa-circle-notch"></i></a>
+                <a href="#"><i class="fas fa-comment-alt"></i></a>
+                <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+            </header>
+            <section class="notifications">
+                <a href="#"><i class="fas fa-bell-slash"></i></a>
+                <div class="notifications-content">
+                    <div class="text">Ricevi notifiche di nuovi messaggi</div>
+                    <a href="#">
+                        <div class="enable">Attiva notifiche desktop</div>
+                    </a>
+                </div>
+            </section>
+        </aside>
+        <main class="content">
+            
+            <header class="main-header">
+            <img src="./img/avatar_3.jpg" alt="user-image" class="avatar user-image">
+            <div class="header-content">
+                <div class="user-name">Marco</div>
+                <div class="last-access">Ultimo accesso oggi alle 10.35</div>
+            </div>
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-paperclip"></i></a>
+            <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+            </header>
+            
+            <section class="content-main">
+                <p class="message"></p>
+            </section>
+            <footer class="content-footer"></footer>
+        </main>
+       
+    </div>
+    
+    <!-- Js -->
+    <script src="./js/script.js"></script>
+</body>
+</html>
