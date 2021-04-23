@@ -67,6 +67,7 @@ header .user-name {
 	flex-grow: 1;
 }
 
+/* NOTIFICATIONS ALERT */
 aside .notifications {
 	display: flex;
 	flex-direction: row;
@@ -90,6 +91,69 @@ aside .notifications a i {
 aside .notifications .notifications-content a {
 	color: #666666;
 	text-decoration: underline;
+	font-size: 14px;
+}
+
+/* SEARCH CHAT */
+
+.search-chat {
+	background: #ededed;
+	padding: 10px;
+}
+
+.search-chat .search-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: #fff;
+	border: 1px solid rgba(221, 221, 221, 0.7);
+}
+
+.search-chat .search-container a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	border-right: 1px solid #ededed;
+	width: 75px;
+	height: 40px;
+}
+
+.search-chat .search-container a i {
+	font-size: 18px;
+	color: #bababa;
+}
+
+.search-chat .search-container .text {
+	padding: 10px;
+
+	border: none;
+	flex-grow: 1;
+	outline: none;
+}
+
+.search-chat .search-container .text::placeholder {
+	color: #ccc;
+}
+
+/* CONTACTS */
+
+section.contacts ul.contacts-list .contact {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	list-style: none;
+	padding: 10px 20px;
+	border-bottom: 1px solid #eee;
+}
+
+section.contacts ul.contacts-list .contact img.avatar {
+	max-width: 60px;
+	margin-right: 20px;
+}
+
+section.contacts ul .contact .name {
+	flex-grow: 1;
 }
 /* CONTENT */
 
@@ -105,6 +169,11 @@ main .main-header .header-content {
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
+}
+
+main .main-header .header-content .last-access {
+	font-size: 14px;
+	color: #bababa;
 }
 
 main .main-header {

@@ -19,6 +19,7 @@
          background linear gradient al body -->
     <div id="app" class="container">
         <aside class="side">
+            <!-- SIDE HEADER -->
             <header class="side-header">
                 <img src="./img/avatar_2.jpg" alt="user-image" class="avatar user-image">
                 <div class="user-name">Matteo Meneguzzi</div>
@@ -26,6 +27,8 @@
                 <a href="#"><i class="fas fa-comment-alt"></i></a>
                 <a href="#"><i class="fas fa-ellipsis-v"></i></a>
             </header>
+
+            <!-- NOTIFICATIONS -->
             <section class="notifications">
                 <a href="#"><i class="fas fa-bell-slash"></i></a>
                 <div class="notifications-content">
@@ -34,6 +37,35 @@
                         <div class="enable">Attiva notifiche desktop</div>
                     </a>
                 </div>
+            </section>
+
+            <!-- SEARCH CHAT -->
+            <section class="search-chat">
+                <div class="search-container">
+                     <a href="#"><i class="fas fa-search"></i></a>
+                     <input class="text" type="text" placeholder="Cerca o inizia una nuova chat"></input>
+                </div>
+            </section>
+
+            <!-- CONTACTS -->
+            <section class="contacts">
+                <ul v-if=" contacts.length > 0" class="contacts-list">
+                    <li class="contact" v-for="contact in contacts">
+                        <img :src="contact.avatar" alt="avatar-contact" class="avatar">
+                   
+                    <span class="name" >
+                        {{contact.name}}
+                    </span>
+                     </li>
+                     <!-- <li class="contact">
+                        <img src="./img/avatar_5.jpg" alt="avatar-contact" class="avatar">
+                   
+                    <span class="name">
+                        Fabio
+                    </span>
+                     </li> -->
+                </ul>
+                <div v-else>Non hai nessun contatto</div>
             </section>
         </aside>
         <main class="content">
