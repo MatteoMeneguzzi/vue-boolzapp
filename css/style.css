@@ -126,7 +126,6 @@ aside .notifications .notifications-content a {
 
 .search-chat .search-container .text {
 	padding: 10px;
-
 	border: none;
 	flex-grow: 1;
 	outline: none;
@@ -145,6 +144,16 @@ section.contacts ul.contacts-list .contact {
 	list-style: none;
 	padding: 10px 20px;
 	border-bottom: 1px solid #eee;
+	transition: background-color 0.1s;
+}
+
+section.contacts ul.contacts-list .contact:hover {
+	background-color: #ddd;
+	cursor: pointer;
+}
+
+section.contacts ul.contacts-list .contact:last-child {
+	border-bottom: none;
 }
 
 section.contacts ul.contacts-list .contact img.avatar {
@@ -179,11 +188,90 @@ main .main-header .header-content .last-access {
 main .main-header {
 	border-left: 1px solid #bababa;
 }
+
+/* CONTENT MAIN */
 .content-main {
 	flex-grow: 1;
 	overflow-y: auto;
+	background-image: url(../img/mine.jpg);
 }
 
-.message {
-	padding: 20px;
+.content-main .chat {
+	padding: 60px 80px;
+	display: flex;
+	flex-direction: column;
+}
+
+.content-main .chat .message {
+	display: flex;
+	width: 100%;
+}
+
+.content-main .chat .message.sent {
+	justify-content: flex-end;
+}
+
+.content-main .chat .msg {
+	max-width: 70%;
+	min-width: 40%;
+	position: relative;
+	background: white;
+	padding: 10px 10px 20px;
+	line-height: 20px;
+	word-wrap: anywhere;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+
+.content-main .chat .msg .date {
+	position: absolute;
+	bottom: 2px;
+	right: 5px;
+	font-size: 10px;
+	padding-top: 5px;
+	color: #888;
+}
+
+.content-main .chat .msg.sent {
+	background: #dcfabe;
+}
+
+/* CONTENT FOOTER */
+
+.content-footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background: #f4f0ed;
+	padding: 10px 0px;
+}
+
+.content-footer a {
+	width: 80px;
+	display: flex;
+	justify-content: center;
+	text-decoration: none;
+}
+
+.content-footer i {
+	font-size: 22px;
+	color: #777;
+	transition: color 0.1s;
+}
+
+.content-footer i:hover {
+	color: #333;
+}
+
+.content-footer input {
+	flex-grow: 1;
+	height: 50px;
+	padding: 10px;
+	border: none;
+	flex-grow: 1;
+	outline: none;
+}
+
+.content-footer input::placeholder {
+	color: #999;
 }

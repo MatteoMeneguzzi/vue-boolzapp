@@ -21,7 +21,7 @@
         <aside class="side">
             <!-- SIDE HEADER -->
             <header class="side-header">
-                <img src="./img/avatar_2.jpg" alt="user-image" class="avatar user-image">
+                <img src="./img/avatar_8.jpg" alt="user-image" class="avatar user-image">
                 <div class="user-name">Matteo Meneguzzi</div>
                 <a href="#"><i class="fas fa-circle-notch"></i></a>
                 <a href="#"><i class="fas fa-comment-alt"></i></a>
@@ -51,19 +51,12 @@
             <section class="contacts">
                 <ul v-if=" contacts.length > 0" class="contacts-list">
                     <li class="contact" v-for="contact in contacts">
-                        <img :src="contact.avatar" alt="avatar-contact" class="avatar">
-                   
+                        <img :src="`img/avatar${contact.avatar}`" alt="avatar-contact" class="avatar">
                     <span class="name" >
                         {{contact.name}}
                     </span>
-                     </li>
-                     <!-- <li class="contact">
-                        <img src="./img/avatar_5.jpg" alt="avatar-contact" class="avatar">
-                   
-                    <span class="name">
-                        Fabio
-                    </span>
-                     </li> -->
+                    </li>
+                     
                 </ul>
                 <div v-else>Non hai nessun contatto</div>
             </section>
@@ -82,9 +75,48 @@
             </header>
             
             <section class="content-main">
-                <p class="message"></p>
+                <div class="chat">
+                        <div class="message sent">
+                            <div class="msg sent" >ciao
+                                <div class="date">
+                                    10/7/2021 15:50:37
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message received">
+                            <div class="msg received">uiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryr
+                                <div class="date">
+                                    10/7/2021 15:50:37
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message received">
+                            <div class="msg received">vrevevervevrevreve
+                                <div class="date">
+                                    10/7/2021 15:50:37
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message sent">
+                            <div class="msg sent">uiviurvureuvuirevsvrvbrtbrtryr
+                                <div class="date">
+                                    10/7/2021 15:50:37
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="msg sent">
+                            uiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytnuiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytnuiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytnuiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytn
+                            <div class="date">
+                                10/7/2021 15:50:37
+                            </div>
+                        </div> -->
+                </div>
             </section>
-            <footer class="content-footer"></footer>
+            <footer class="content-footer">
+                <a href="#"><i class="far fa-smile"></i></a>
+                <input type="text" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyup.enter="sendMessage" ref="inputMessage">
+                <a href="#"><i class="fas fa-microphone"></i></a>
+            </footer>
         </main>
        
     </div>

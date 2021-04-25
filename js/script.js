@@ -6,7 +6,7 @@ var app = new Vue({
 		contacts: [
 			{
 				name: "Michele",
-				avatar: "_1",
+				avatar: "_1.jpg",
 				visible: true,
 				messages: [
 					{
@@ -28,7 +28,7 @@ var app = new Vue({
 			},
 			{
 				name: "Fabio",
-				avatar: "_2",
+				avatar: "_2.jpg",
 				visible: true,
 				messages: [
 					{
@@ -50,7 +50,7 @@ var app = new Vue({
 			},
 			{
 				name: "Samuele",
-				avatar: "_3",
+				avatar: "_3.jpg",
 				visible: true,
 				messages: [
 					{
@@ -72,7 +72,7 @@ var app = new Vue({
 			},
 			{
 				name: "Luisa",
-				avatar: "_4",
+				avatar: "_4.jpg",
 				visible: true,
 				messages: [
 					{
@@ -88,5 +88,27 @@ var app = new Vue({
 				],
 			},
 		],
+
+		userMessage: { text: "" },
+		newMessage: "",
+	},
+	methods: {
+		sendMessage() {
+			console.log("Add Message");
+			console.log(this.newMessage);
+
+			if (this.newMessage.length > 0) {
+				this.contact.messages += {
+					date: "10/01/2020 15:50:00",
+					message: "Ricordati di dargli da mangiare",
+					status: "sent",
+				};
+			}
+			// if (this.newMessage.length > 0) {
+			// 	this.userMessage += this.newMessage;
+			// 	((this.userMessage = ""), (this.newMessage = "")),
+			// 		this.$refs.inputMessage.focus();
+			// }
+		},
 	},
 });
