@@ -79,13 +79,13 @@
             </header>
             
             <section class="content-main">
-                <div class="chat" v-for="(contact,index) in contacts" v-show="contacts[index] == contacts[indexChat]" >
-                        <div class="message sent" >
-                            <div class="msg green" >{{contacts[indexChat].messages}}
+                <div class="chat" >
+                        <div class="message sent" v-for="(contact,index) in contacts[indexChat].messages" :class="[contact.status == 'received' ? 'received' : 'sent']" >
+                            {{contact.message}}
                                 <div class="date">
-                                    10/7/2021 15:50:37
+                                    {{contact.date}}
                                 </div>
-                            </div>
+                           
                         </div>
                         <!-- <div class="message received">
                             <div class="msg white">uiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryr

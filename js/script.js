@@ -94,6 +94,7 @@ var app = new Vue({
 		],
 
 		indexChat: 0,
+		indexMessage: 0,
 	},
 	methods: {
 		// sendMessage() {
