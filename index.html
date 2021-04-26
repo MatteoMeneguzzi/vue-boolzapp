@@ -21,8 +21,8 @@
         <aside class="side">
             <!-- SIDE HEADER -->
             <header class="side-header">
-                <img src="./img/avatar_8.jpg" alt="user-image" class="avatar user-image">
-                <div class="user-name">Matteo Meneguzzi</div>
+                <img :src="'img/avatar' + user.avatar + '.jpg'" alt="user.name" class="avatar user-image">
+                <div class="user-name">{{user.name}}</div>
                 <a href="#"><i class="fas fa-circle-notch"></i></a>
                 <a href="#"><i class="fas fa-comment-alt"></i></a>
                 <a href="#"><i class="fas fa-ellipsis-v"></i></a>
@@ -50,11 +50,15 @@
             <!-- CONTACTS -->
             <section class="contacts">
                 <ul v-if=" contacts.length > 0" class="contacts-list">
-                    <li class="contact" v-for="contact in contacts">
-                        <img :src="`img/avatar${contact.avatar}`" alt="avatar-contact" class="avatar">
-                    <span class="name" >
-                        {{contact.name}}
-                    </span>
+                    <li 
+                    class="contact" 
+                    v-for="(contact, index) in contacts" 
+                    :class="{ active: index == indexChat }"
+					@click="switchChat(index)">
+                        <img :src="`img/avatar${contact.avatar}.jpg`" alt="avatar-contact" class="avatar">
+                        <span class="name" >
+                            {{contact.name}}
+                        </span>
                     </li>
                      
                 </ul>
@@ -64,10 +68,10 @@
         <main class="content">
             
             <header class="main-header">
-            <img src="./img/avatar_3.jpg" alt="user-image" class="avatar user-image">
+            <img :src="'img/avatar' + contacts[indexChat].avatar + '.jpg'" alt="user-image" class="avatar user-image">
             <div class="header-content">
-                <div class="user-name">Marco</div>
-                <div class="last-access">Ultimo accesso oggi alle 10.35</div>
+                <div class="user-name">{{contacts[indexChat].name}}</div>
+                <div class="last-access">Ultimo accesso oggi alle 13:45</div>
             </div>
             <a href="#"><i class="fas fa-search"></i></a>
             <a href="#"><i class="fas fa-paperclip"></i></a>
@@ -75,35 +79,35 @@
             </header>
             
             <section class="content-main">
-                <div class="chat">
-                        <div class="message sent">
-                            <div class="msg sent" >ciao
+                <div class="chat" v-for="(contact,index) in contacts" v-show="contacts[index] == contacts[indexChat]" >
+                        <div class="message sent" >
+                            <div class="msg green" >{{contacts[indexChat].messages}}
+                                <div class="date">
+                                    10/7/2021 15:50:37
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="message received">
+                            <div class="msg white">uiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryr
                                 <div class="date">
                                     10/7/2021 15:50:37
                                 </div>
                             </div>
                         </div>
                         <div class="message received">
-                            <div class="msg received">uiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryr
-                                <div class="date">
-                                    10/7/2021 15:50:37
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message received">
-                            <div class="msg received">vrevevervevrevreve
+                            <div class="msg white">vrevevervevrevreve
                                 <div class="date">
                                     10/7/2021 15:50:37
                                 </div>
                             </div>
                         </div>
                         <div class="message sent">
-                            <div class="msg sent">uiviurvureuvuirevsvrvbrtbrtryr
+                            <div class="msg green">uiviurvureuvuirevsvrvbrtbrtryr
                                 <div class="date">
                                     10/7/2021 15:50:37
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div class="msg sent">
                             uiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytnuiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytnuiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytnuiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytn
                             <div class="date">
@@ -114,7 +118,7 @@
             </section>
             <footer class="content-footer">
                 <a href="#"><i class="far fa-smile"></i></a>
-                <input type="text" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyup.enter="sendMessage" ref="inputMessage">
+                <input type="text" placeholder="Scrivi un messaggio" >
                 <a href="#"><i class="fas fa-microphone"></i></a>
             </footer>
         </main>

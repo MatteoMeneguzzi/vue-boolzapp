@@ -3,10 +3,14 @@
 var app = new Vue({
 	el: "#app",
 	data: {
+		user: {
+			name: "Sara Giusti",
+			avatar: "_io",
+		},
 		contacts: [
 			{
 				name: "Michele",
-				avatar: "_1.jpg",
+				avatar: "_1",
 				visible: true,
 				messages: [
 					{
@@ -28,7 +32,7 @@ var app = new Vue({
 			},
 			{
 				name: "Fabio",
-				avatar: "_2.jpg",
+				avatar: "_2",
 				visible: true,
 				messages: [
 					{
@@ -50,7 +54,7 @@ var app = new Vue({
 			},
 			{
 				name: "Samuele",
-				avatar: "_3.jpg",
+				avatar: "_3",
 				visible: true,
 				messages: [
 					{
@@ -72,7 +76,7 @@ var app = new Vue({
 			},
 			{
 				name: "Luisa",
-				avatar: "_4.jpg",
+				avatar: "_4",
 				visible: true,
 				messages: [
 					{
@@ -89,26 +93,29 @@ var app = new Vue({
 			},
 		],
 
-		userMessage: { text: "" },
-		newMessage: "",
+		indexChat: 0,
 	},
 	methods: {
-		sendMessage() {
-			console.log("Add Message");
-			console.log(this.newMessage);
+		// sendMessage() {
+		// 	console.log("Add Message");
+		// 	console.log(this.newMessage);
 
-			if (this.newMessage.length > 0) {
-				this.contact.messages += {
-					date: "10/01/2020 15:50:00",
-					message: "Ricordati di dargli da mangiare",
-					status: "sent",
-				};
-			}
-			// if (this.newMessage.length > 0) {
-			// 	this.userMessage += this.newMessage;
-			// 	((this.userMessage = ""), (this.newMessage = "")),
-			// 		this.$refs.inputMessage.focus();
-			// }
+		// 	if (this.newMessage.length > 0) {
+		// 		this.contact.messages += {
+		// 			date: "10/01/2020 15:50:00",
+		// 			message: "Ricordati di dargli da mangiare",
+		// 			status: "sent",
+		// 		};
+		// 	}
+		// if (this.newMessage.length > 0) {
+		// 	this.userMessage += this.newMessage;
+		// 	((this.userMessage = ""), (this.newMessage = "")),
+		// 		this.$refs.inputMessage.focus();
+		// }
+		// },
+		switchChat(index) {
+			console.log(index);
+			this.indexChat = index;
 		},
 	},
 });

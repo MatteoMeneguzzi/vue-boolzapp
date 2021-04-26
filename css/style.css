@@ -147,8 +147,12 @@ section.contacts ul.contacts-list .contact {
 	transition: background-color 0.1s;
 }
 
+section.contacts ul.contacts-list .contact.active {
+	background-color: #eee;
+}
+
 section.contacts ul.contacts-list .contact:hover {
-	background-color: #ddd;
+	background-color: #eee;
 	cursor: pointer;
 }
 
@@ -232,7 +236,7 @@ main .main-header {
 	color: #888;
 }
 
-.content-main .chat .msg.sent {
+.content-main .chat .msg.green {
 	background: #dcfabe;
 }
 
