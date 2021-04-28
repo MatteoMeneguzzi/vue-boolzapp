@@ -55,8 +55,7 @@
                     v-for="(contact, index) in contacts" 
                     :class="{ active: index == indexChat }"
 					@click="switchChat(index)"
-                    v-if="contact.visible">
-                    {{contact.name}}
+                    v-show="contact.visible">
                         <img :src="`img/avatar${contact.avatar}.jpg`" alt="avatar-contact" class="avatar">
                         <span class="name" >
                             {{contact.name}}

@@ -97,26 +97,27 @@ var app = new Vue({
 		indexChat: 0,
 		newMessage: "",
 		autoAnswer: "ok",
-		filterWord: "".trim(),
+		filterWord: "",
 	},
 	methods: {
 		searchResults() {
-			for (
-				this.indexChat = 0;
-				this.indexChat < this.contacts.length;
-				this.indexChat++
-			) {
+			for (let index = 0; index < this.contacts.length; index++) {
 				// console.log("bombaaaa");
-				console.log(this.contacts[this.indexChat].name);
+				console.log(this.contacts[index].name.toLowerCase());
 				// console.log(this.filterWord);
-				if (this.contacts[this.indexChat].name.includes(this.filterWord)) {
-					// this.contacts[this.indexChat].visible = true;
-					console.log("VERO");
-					console.log(this.contacts[this.indexChat].visible);
+				if (
+					this.contacts[index].name
+						.toLowerCase()
+						.trim()
+						.includes(this.filterWord.toLowerCase())
+				) {
+					this.contacts[index].visible = true;
+					// console.log("VERO");
+					// console.log(this.contacts[index].visible);
 				} else {
-					// this.contacts[this.indexChat].visible = false;
-					console.log("FALSO");
-					console.log(this.contacts[this.indexChat].visible);
+					this.contacts[index].visible = false;
+					// console.log("FALSO");
+					// console.log(this.contacts[index].visible);
 				}
 			}
 		},
