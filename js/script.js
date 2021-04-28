@@ -100,11 +100,28 @@ var app = new Vue({
 		filterWord: "",
 	},
 	methods: {
+		// searchResults() {
+		// 	for (let index = 0; index < this.contacts.length; index++) {
+		// 		// console.log("bombaaaa");
+		// 		console.log(this.contacts[index].name.toLowerCase());
+		// 		// console.log(this.filterWord);
+		// 		if (
+		// 			this.contacts[index].name
+		// 				.toLowerCase()
+		// 				.trim()
+		// 				.includes(this.filterWord.toLowerCase())
+		// 		) {
+		// 			this.contacts[index].visible = true;
+		// 			// console.log("VERO");
+		// 			// console.log(this.contacts[index].visible);
+		// 		} else {
+		// 			this.contacts[index].visible = false;
+		// 			// console.log("FALSO");
+		// 			// console.log(this.contacts[index].visible);
+		// 		}
+		// 	}
 		searchResults() {
-			for (let index = 0; index < this.contacts.length; index++) {
-				// console.log("bombaaaa");
-				console.log(this.contacts[index].name.toLowerCase());
-				// console.log(this.filterWord);
+			this.contacts.forEach((contact, index) => {
 				if (
 					this.contacts[index].name
 						.toLowerCase()
@@ -119,7 +136,7 @@ var app = new Vue({
 					// console.log("FALSO");
 					// console.log(this.contacts[index].visible);
 				}
-			}
+			});
 		},
 		switchChat(index) {
 			console.log(index);
