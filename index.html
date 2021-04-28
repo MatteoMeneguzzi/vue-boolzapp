@@ -43,24 +43,26 @@
             <section class="search-chat">
                 <div class="search-container">
                      <a href="#"><i class="fas fa-search"></i></a>
-                     <input class="text" type="text" placeholder="Cerca o inizia una nuova chat"></input>
+                     <input class="text" type="text" placeholder="Cerca o inizia una nuova chat" @keyup="searchResults" v-model.trim="filterWord">
                 </div>
             </section>
 
             <!-- CONTACTS -->
             <section class="contacts">
-                <ul v-if=" contacts.length > 0" class="contacts-list">
+                <ul v-if="contacts.length > 0" class="contacts-list">
                     <li 
                     class="contact" 
                     v-for="(contact, index) in contacts" 
                     :class="{ active: index == indexChat }"
-					@click="switchChat(index)">
+					@click="switchChat(index)"
+                    v-if="contact.visible">
+                    {{contact.name}}
                         <img :src="`img/avatar${contact.avatar}.jpg`" alt="avatar-contact" class="avatar">
                         <span class="name" >
                             {{contact.name}}
                         </span>
                     </li>
-                     
+                   
                 </ul>
                 <div v-else>Non hai nessun contatto</div>
             </section>
@@ -80,45 +82,18 @@
             
             <section class="content-main">
                 <div class="chat" >
-                        <div class="message sent" v-for="(contact,index) in contacts[indexChat].messages" :class="[contact.status == 'received' ? 'received' : 'sent']" >
-                            {{contact.message}}
+                        <div class="message" v-for="(message,index) in contacts[indexChat].messages" :class="message.status" > 
+                           <div class="msg" :class="message.status === 'sent' ? 'green' : 'white'"> {{message.message}}
                                 <div class="date">
-                                    {{contact.date}}
-                                </div>
-                           
-                        </div>
-                        <!-- <div class="message received">
-                            <div class="msg white">uiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryruiviurvureuvuirevsvrvbrtbrtryr
-                                <div class="date">
-                                    10/7/2021 15:50:37
+                                  {{message.date}}
                                 </div>
                             </div>
                         </div>
-                        <div class="message received">
-                            <div class="msg white">vrevevervevrevreve
-                                <div class="date">
-                                    10/7/2021 15:50:37
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message sent">
-                            <div class="msg green">uiviurvureuvuirevsvrvbrtbrtryr
-                                <div class="date">
-                                    10/7/2021 15:50:37
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="msg sent">
-                            uiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytnuiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytnuiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytnuiviurvureuvuirevsvrvbrtbrtryryntntntynytntyntynytntynytntynytn
-                            <div class="date">
-                                10/7/2021 15:50:37
-                            </div>
-                        </div> -->
                 </div>
             </section>
             <footer class="content-footer">
                 <a href="#"><i class="far fa-smile"></i></a>
-                <input type="text" placeholder="Scrivi un messaggio" >
+                <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="addMessage" v-model.trim="newMessage" ref="inputAddMessage">
                 <a href="#"><i class="fas fa-microphone"></i></a>
             </footer>
         </main>

@@ -3,6 +3,7 @@
 var app = new Vue({
 	el: "#app",
 	data: {
+		// message: "Ciaoneeeee",
 		user: {
 			name: "Sara Giusti",
 			avatar: "_io",
@@ -94,29 +95,84 @@ var app = new Vue({
 		],
 
 		indexChat: 0,
-		indexMessage: 0,
+		newMessage: "",
+		autoAnswer: "ok",
+		filterWord: "".trim(),
 	},
 	methods: {
-		// sendMessage() {
-		// 	console.log("Add Message");
-		// 	console.log(this.newMessage);
-
-		// 	if (this.newMessage.length > 0) {
-		// 		this.contact.messages += {
-		// 			date: "10/01/2020 15:50:00",
-		// 			message: "Ricordati di dargli da mangiare",
-		// 			status: "sent",
-		// 		};
-		// 	}
-		// if (this.newMessage.length > 0) {
-		// 	this.userMessage += this.newMessage;
-		// 	((this.userMessage = ""), (this.newMessage = "")),
-		// 		this.$refs.inputMessage.focus();
-		// }
-		// },
+		searchResults() {
+			for (
+				this.indexChat = 0;
+				this.indexChat < this.contacts.length;
+				this.indexChat++
+			) {
+				// console.log("bombaaaa");
+				console.log(this.contacts[this.indexChat].name);
+				// console.log(this.filterWord);
+				if (this.contacts[this.indexChat].name.includes(this.filterWord)) {
+					// this.contacts[this.indexChat].visible = true;
+					console.log("VERO");
+					console.log(this.contacts[this.indexChat].visible);
+				} else {
+					// this.contacts[this.indexChat].visible = false;
+					console.log("FALSO");
+					console.log(this.contacts[this.indexChat].visible);
+				}
+			}
+		},
 		switchChat(index) {
 			console.log(index);
 			this.indexChat = index;
 		},
+		addMessage() {
+			// this.indexChat = index;
+			console.log("ciao");
+			console.log(this.newMessage);
+			console.log(this.contacts[this.indexChat]);
+
+			if (this.newMessage.length > 0) {
+				this.contacts[this.indexChat].messages.push({
+					date: "10/01/2020 15:30:55",
+					message: this.newMessage,
+					status: "sent",
+				});
+				this.newMessage = "";
+				this.$refs.inputAddMessage.focus();
+				setTimeout(() => {
+					console.log("ciao");
+					this.contacts[this.indexChat].messages.push({
+						date: "10/01/2020 15:30:55",
+						message: this.autoAnswer,
+						status: "received",
+					});
+				}, 1000);
+			}
+		},
+
+		// printAnswer() {
+		// 	this.intervalID = setTimeout(() => {
+		// 		console.log("ciao");
+		// 		this.addMessage();
+		// 		return this.contacts[this.indexChat].messages.push({
+		// 			date: "10/01/2020 15:30:55",
+		// 			message: this.autoAnswer,
+		// 			status: "received",
+		// 		});
+		// 	}, 3000);
+		// },
+		// stopLoop() {
+		// 	clearInterval(this.intervalID);
+		// },
+
+		// 	callFunction: function () {
+		// 		var v = this;
+		// 		console.log(this);
+		// 		setTimeout(function () {
+		// 			v.message = "Hi Bro, SetTimeout is working fine.";
+		// 		}, 3000);
+		// 	},
+		// },
+		// created() {
+		// 	this.callFunction();
 	},
 });
